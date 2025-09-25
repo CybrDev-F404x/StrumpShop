@@ -1,12 +1,4 @@
-import { Fragment } from "react"
-import { useMemo } from "react"
-
-export default function Header({cart, removeFromCart, increaseQuantity, descreaseQuantity, clearCart}) {
-
-    // State Derived
-    // useMemo: memoriza un valor calculado, solo se vuelve a calcular si las dependencias cambian. No rendereiza toda la pagina, solo el valor que depende de las dependencias
-    const isEmpty = useMemo( () => cart.length === 0, [cart]) // true si el carrito esta vacio, false si tiene elementos
-    const cartTotal = useMemo( () => cart.reduce((total, item) => total + (item.quantity * item.price), 0), [cart]) // calcular el total si cambia el carrito
+export default function Header({cart, removeFromCart, increaseQuantity, descreaseQuantity, clearCart, isEmpty, cartTotal}) {
 
     return (
         <header className="py-5 header">
